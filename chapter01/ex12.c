@@ -3,7 +3,7 @@
 #define SET 1
 #define UNSET 0
 
-/* replaces multiple blanks with single ones */
+/* Prints word by word in newline */
 
 int main()
 {
@@ -13,16 +13,16 @@ int main()
 	state = UNSET;
 
 	while((c = getchar()) != EOF ) {
-		if (c == ' ') {
-			if(state == UNSET) {
+		if (c == ' ' ||  c == '\t') {
+			if (state == UNSET) {
 				state = SET;
-				putchar(c);
+				putchar('\n');
 			}
-		} else if (state == SET) {
-			state = UNSET;
+		} else {
+			if ( state == SET)
+				state = UNSET;
 			putchar(c);
-		} else
-			putchar(c);			
+		}
 	}
 
 	return 0;
