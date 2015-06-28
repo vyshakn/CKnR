@@ -44,7 +44,7 @@ int main()
 		if (wordsize[index] > 0) {
 			printf(" %d \t", index+1);
 			for(count = 1; count <= wordsize[index]; count++)
-				printf("|*|");
+				printf("-");
 			printf("\n");
 		}
 	}
