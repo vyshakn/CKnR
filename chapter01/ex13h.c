@@ -9,24 +9,34 @@ int main()
 {
 
 	int c,count,index;
-	int wordsize[MAX];
+	int wordsize[MAX] = {0};
 
 	count = RESET;
 	index = 0;
 
-	for(index = 0; index < MAX; index++)
-		wordsize[index] = 0;
-
 	while((c = getchar()) != EOF ) {
-		if (c == ' ' ||  c == '\t' || c == '\n') {
+		switch(c) {
+		case ' ' :
+		case '\t':
+		case '\n':
 			if (count > 0 && count < MAX + 1)
 				++wordsize[count-1];
 			count = RESET;
-		} else if (c == ',' || c == '.' || c == '\'' || c == ':' || c == '?' 
-			|| c ==	'!' || c == '(' || c == ')' ) {
-			;
-		} else {
+			break;
+	
+		case ',' :
+		case '.' :
+		case '\'':
+		case ':' :
+		case '?' :
+		case '!' :
+		case '(' :
+		case ')' : 
+			break;
+
+		default :
 			++count;
+			break;
 		}
 	}
 
