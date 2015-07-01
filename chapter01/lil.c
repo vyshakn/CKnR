@@ -3,8 +3,10 @@
 
 int getaline(char line[], int maxline);
 void copy(char to[], char from[]);
+
 /* print the longest input line */
-main()
+
+int main()
 {
 	int len;	/* current line length */
 	int max;	/* maximum length seen so far */
@@ -20,7 +22,7 @@ main()
 		printf("%s", longest);
 	return 0;
 }
-/* getline: read a line into s, return length	*/
+/* getaline: read a line into s, return length	*/
 int getaline(char s[],int lim)
 {
 	int c, i;
