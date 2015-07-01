@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 /* Value of getchar() != EOF */
 
 int main()

@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 /* Print value of EOF */
 
 int main()

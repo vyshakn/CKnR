@@ -1,6 +1,8 @@
 #include <stdio.h>
+
 /* print Celsius-Fahrenheit table
 	for celsius = 0, 20, ..., 300; floating-point version */
+
 int main()
 {
 	float fahr, celsius;
