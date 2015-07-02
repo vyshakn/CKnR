@@ -39,18 +39,42 @@ int getaline(char s[],int lim)
 	of size fold at blanks */
 void splitline(char input[], int len, int fold)
 {
-	int  temp, endl;
+	int  i, temp, endl;
 
 	endl = fold;
 
-	while(endl < len) {
+	while(endl <= len) {
 		temp = endl - fold;
 		for(; endl > temp && input[endl] != ' '; --endl);
 		if( input[endl] == ' ' ) 
 			input[endl] = '\n';
 		else {
 			/* Found No blanks condition */
-			; 
+			endl = temp + fold;
+
+			if(len > MAXLINE - 3) {		//very long input line
+
+				/* Nothing Intelligent ,
+				   Just removes extra characters
+				   keeping '\n' and '\0' */
+
+				if(input[len-1] == '\n')
+					input[MAXLINE - 4] = '\n';
+				len = MAXLINE - 3;
+				input[len] = '\0';
+			}
+
+			/* Shift characters 2 steps to add 
+			   '-' and '\n' inbetween */
+
+			for(i = len; i >=  endl - 2 ; i = i - 2) {
+				input[i+2] = input[i];
+				input[i+1] = input[i-1];
+			}
+			len = len + 2;
+			endl = endl - 1;
+			input[endl - 1] = '-';
+			input[endl] = '\n';
 		}
 		endl += fold;
 	}
