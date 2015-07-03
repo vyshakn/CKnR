@@ -1,21 +1,11 @@
 #include<stdio.h>
-/*
-#define SET 1
-#define RESET 0
-#define SL 0
-#define ML 1
-*/
-
 /* Remove Comments */
 
 int main()
 {
 
 	int c,x;
-	/*
-	state[SL] = RESET;
-	state[ML] = RESET;
-	*/
+	
 	while((c = getchar()) != EOF ) {
 		if (c == '/') {
 			x = getchar();
